@@ -3,7 +3,7 @@ FROM continuumio/miniconda3:latest AS builder
 
 # Install system dependencies
 RUN apt-get update && \
-    apt-get install -y sudo libusb-1.0 gcc g++ python3-dev && \
+    apt-get install -y sudo libusb-1.0 gcc g++ python3-dev libsecp256k1-dev && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/hummingbot
@@ -57,7 +57,7 @@ ENV INSTALLATION_TYPE=docker
 
 # Install system dependencies
 RUN apt-get update && \
-    apt-get install -y sudo libusb-1.0 && \
+    apt-get install -y sudo libusb-1.0 libsecp256k1-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Create mount points
